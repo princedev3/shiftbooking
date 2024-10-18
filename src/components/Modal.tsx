@@ -82,11 +82,18 @@ if(!use){
     return null
 }
 
-const[myData,setMydata]= useState([])
-useEffect(()=>{
-    setMydata( data?.filter(item => item?.userId === use?.user?.id))
-},[data,use.user?.id] )
+// const[myData,setMydata]= useState([])
+// useEffect(()=>{
+//     setMydata( data?.filter(item => item?.userId === use?.user?.id))
+// },[data,use.user?.id] )
+const [myData, setMyData] = useState([]);
 
+useEffect(() => {
+  if (data && use?.user?.id) {
+    const filteredData:any = data.filter(item => item?.userId === use.user.id);
+    setMyData(filteredData);
+  }
+}, [data, use?.user?.id]);
   
 
 
