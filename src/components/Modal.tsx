@@ -85,7 +85,7 @@ if(!use){
 const[myData,setMydata]= useState([])
 useEffect(()=>{
     setMydata( data?.filter(item => item?.userId === use?.user?.id))
-},[data] )
+},[data,use.user?.id] )
 
   
 
